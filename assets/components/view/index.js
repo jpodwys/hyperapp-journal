@@ -26,10 +26,10 @@ const View = (state, actions) => (
       entry={state.entry}
       filterText={state.filterText}
       showFilterInput={state.showFilterInput}
-      dark={state.dark}/>
+      dark={state.dark}/> */}
     <main>
-      <Router onChange={handleRouteChange.bind(this)}> */}
-        <Login path="/" loggedIn={state.loggedIn}/>
+      {/* <Router onChange={handleRouteChange.bind(this)}> */}
+        <Login path="/" actions={actions} />
         {/* <Entries path="/entries"
           scrollPosition={state.scrollPosition}
           loggedIn={state.loggedIn}
@@ -40,8 +40,8 @@ const View = (state, actions) => (
           entry={state.entry} 
           entryReady={state.entryReady}/>
       </Router>
-      <Toast toastConfig={state.toastConfig}/>
-    </main> */}
+      <Toast toastConfig={state.toastConfig}/> */}
+    </main>
   </div>
 );
 
