@@ -8,12 +8,16 @@ const getUser = (e, prefix) => {
   }
 };
 
-const Login = ({actions}) /*=> (state, actions)*/ => (
+const Login = () => (state, actions) => (
   <div class="login-page-wrapper">
     <h1 class="center-text">Journalize</h1>
     <h4 class="center-text">Private journal entries</h4>
       <div class="login-form-wrapper">
-        <form action="/api/user" method="POST" onsubmit={e => actions.createAccount(getUser(e, 'c'))} class="full-width full-width--all">
+        <form
+          method="POST"
+          action="/api/user"
+          class="full-width full-width--all"
+          onsubmit={e => actions.createAccount(getUser(e, 'c'))}>
           <fieldset>
             <legend>Create an Account</legend>
             <input id="cusername" placeholder="username" autocapitalize="off"/>
@@ -21,7 +25,11 @@ const Login = ({actions}) /*=> (state, actions)*/ => (
             <input type="submit"/>
           </fieldset>
         </form>
-        <form action="/api/user/login" method="POST" onsubmit={e => actions.login(getUser(e, 'l'))} class="full-width full-width--all">
+        <form
+          method="POST"
+          action="/api/user/login"
+          class="full-width full-width--all"
+          onsubmit={e => actions.login(getUser(e, 'l'))}>
           <fieldset>
             <legend>or Login</legend>
             <input id="lusername" placeholder="username" autocapitalize="off"/>
