@@ -3,7 +3,7 @@ import View from '../components/view';
 import getInitialState from './app-state';
 import actions from './actions/user-actions.js';
 
-app(getInitialState(), actions, View, document.body);
+window.actions = app(getInitialState(), actions, View, document.body);
 
 // if('serviceWorker' in navigator){
 //   navigator.serviceWorker.register('/sw.js');
