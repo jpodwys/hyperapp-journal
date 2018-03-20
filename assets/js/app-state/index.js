@@ -1,5 +1,6 @@
+import { location } from '@hyperapp/router';
 import cookie from '../cookie';
-import { sortObjectsByDate, filterHiddenEntries, clearLocalStorage, getViewFromHref } from '../utils';
+import { sortObjectsByDate, filterHiddenEntries, clearLocalStorage/*, getViewFromHref*/ } from '../utils';
 
 const getInitialState = function() {
   let loggedIn = !!cookie.get('logged_in');
@@ -10,8 +11,9 @@ const getInitialState = function() {
   if(entries) viewEntries = filterHiddenEntries(entries);
 
   let state = {
+    location: location.state,
     scrollPosition: 0,
-    view: getViewFromHref(location.href),
+    // view: getViewFromHref(location.href),
     showFilterInput: false,
     filterText: '',
     entryReady: false,

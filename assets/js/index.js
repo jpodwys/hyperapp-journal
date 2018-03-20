@@ -1,9 +1,11 @@
 import { h, app } from 'hyperapp';
+import { location } from '@hyperapp/router';
 import View from '../components/view';
 import getInitialState from './app-state';
-import actions from './actions/user-actions.js';
+import actions from './actions';
 
 window.actions = app(getInitialState(), actions, View, document.body);
+window.unsubscribe = location.subscribe(window.actions.location);
 
 // if('serviceWorker' in navigator){
 //   navigator.serviceWorker.register('/sw.js');

@@ -1,7 +1,8 @@
 import { h } from 'hyperapp';
-// import { Router, route } from '../router';
+import { Route } from '@hyperapp/router';
 // import Header from '../header';
 import Login from '../login';
+const Entries = (state) => (<h1>Entries</h1>);
 // import Entries from '../entries';
 // import Entry from '../entry';
 // import Toast from '../toast';
@@ -29,7 +30,8 @@ const View = (state, actions) => (
       dark={state.dark}/> */}
     <main>
       {/* <Router onChange={handleRouteChange.bind(this)}> */}
-        <Login path="/" actions={actions} />
+        <Route path="/" render={Login} />
+        <Route path="/entries" render={Entries} />
         {/* <Entries path="/entries"
           scrollPosition={state.scrollPosition}
           loggedIn={state.loggedIn}

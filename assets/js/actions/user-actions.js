@@ -1,6 +1,5 @@
 import User from '../services/user-service';
 import getInitialState from '../app-state';
-// import { route } from '../../components/router';
 import { clearLocalStorage } from '../utils';
 
 const actions = {
@@ -13,7 +12,10 @@ const actions = {
     });
   },
 
-  loginSuccess: user => state => ({ loggedIn: true, location: '/entries' }),
+  loginSuccess: user => (state, actions) => {
+    actions.setState({loggedIn: true});
+    actions.location.go('/entries');
+  },
 
   loginFailure: err => { console.log('loginFailure', err); },
 
@@ -36,7 +38,7 @@ const actions = {
     });
   },
 
-  loginSuccess: () => {
+  logoutSuccess: () => {
     clearLocalStorage();
     return getInitialState();
   },
